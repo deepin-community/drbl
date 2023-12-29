@@ -1,0 +1,24 @@
+drbl for Debian
+---------------
+
+This package has been downloaded from http://sf.net/drbl/drbl-1.10.31.tar.bz2, 
+and the following files are replaced by symlinks as they are already packaged
+in Debian:
+
+bin/drbl-ipcalc    => /usr/bin/ipcalc       (package ipcalc)
+bin/drbl-wakeonlan => /usr/bin/wakeonlan    (package wakeonlan)
+bin/isohybrid      => /usr/bin/isohybrid.pl (package syslinux-common)
+bin/drbl-sha1pass  => /usr/bin/sha1pass     (package syslinux-common)
+
+the following scripts are removed since their license is unknown and
+they are not necessary for the package's features:
+
+bin/list_available*
+bin/list_latest*
+bin/pkg-ver-latest
+
+Other modifications for Debian are maintained with the tool quilt,
+see /usr/share/doc/quilt/README.source
+
+
+ -- Georges Khaznadar <georgesk@ofset.org>, Mon, 26 Dec 2011 22:12:31 +0100

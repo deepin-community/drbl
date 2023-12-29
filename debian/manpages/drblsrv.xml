@@ -1,0 +1,485 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+  <!-- Fill in your name for FIRSTNAME and SURNAME. -->
+  <!ENTITY dhfirstname "Georges">  <!ENTITY dhsurname   "Khaznadar">
+  <!-- dhusername could also be set to "&dhfirstname; &dhsurname;". -->
+  <!ENTITY dhusername  "Georges Khaznadar">
+  <!ENTITY dhemail     "georgesk@ofset.org">
+  <!-- SECTION should be 1-8, maybe w/ subsection other parameters are
+       allowed: see man(7), man(1) and
+       http://www.tldp.org/HOWTO/Man-Page/q2.html. -->
+  <!ENTITY dhsection   "8">
+  <!-- TITLE should be something like "User commands" or similar (see
+       http://www.tldp.org/HOWTO/Man-Page/q2.html). -->
+  <!ENTITY dhtitle     "Administration commands">
+  <!ENTITY dhucpackage "drblsrv">
+  <!ENTITY dhpackage   "drblsrv">
+]>
+
+<refentry>
+  <refentryinfo>
+    <title>&dhtitle;</title>
+    <productname>&dhpackage;</productname>
+    <authorgroup>
+      <author>
+       <firstname>&dhfirstname;</firstname>
+        <surname>&dhsurname;</surname>
+        <contrib>Wrote this manpage for the Debian system, based on the
+	output of the command "<command>&dhpackage;</command> -h".
+	</contrib>
+        <address>
+          <email>&dhemail;</email>
+        </address>
+      </author>
+      <author>
+       <firstname>Steven</firstname>
+        <surname>Shiau</surname>
+        <contrib>Wrote the command <command>&dhpackage;</command>,
+	including its short documentation.
+	</contrib>
+        <address>
+          <email>steven@nchc.org.tw</email>
+        </address>
+      </author>
+    </authorgroup>
+    <copyright>
+      <year>2011</year>
+      <holder>&dhusername;</holder>
+    </copyright>
+    <legalnotice>
+      <para>This manual page was written for the Debian system
+        (and may be used by others).</para>
+      <para>Permission is granted to copy, distribute and/or modify this
+        document under the terms of the GNU General Public License,
+        Version 2 or (at your option) any later version published by
+        the Free Software Foundation.</para>
+      <para>On Debian systems, the complete text of the GNU General Public
+        License can be found in
+        <filename>/usr/share/common-licenses/GPL</filename>.</para>
+    </legalnotice>
+  </refentryinfo>
+  <refmeta>
+    <refentrytitle>&dhucpackage;</refentrytitle>
+    <manvolnum>&dhsection;</manvolnum>
+  </refmeta>
+  <refnamediv>
+    <refname>&dhpackage;</refname>
+    <refpurpose>program to make a DRBL server</refpurpose>
+  </refnamediv>
+  <refsynopsisdiv>
+    <cmdsynopsis>
+      <command>&dhpackage;</command>
+      <!-- These are several examples, how syntaxes could look -->
+      <arg choice="opt">
+        <group choice="req">
+          <arg choice="plain"><option>-f</option></arg>
+          <arg choice="plain"><option>--force-yes</option></arg>
+        </group>
+      </arg>
+
+      <arg choice="opt">
+        <group choice="req">
+          <arg choice="plain"><option>-i</option></arg>
+          <arg choice="plain"><option>--install</option></arg>
+        </group>
+      </arg>
+
+      <arg choice="opt">
+        <group choice="req">
+          <arg choice="plain"><option>-u</option></arg>
+          <arg choice="plain"><option>--uninstall</option></arg>
+        </group>
+      </arg>
+
+      <arg choice="opt">
+        <group choice="req">
+          <arg choice="plain"><option>-v</option></arg>
+          <arg choice="plain"><option>--verbose</option></arg>
+        </group>
+      </arg>
+
+      <arg choice="opt">
+        <group choice="req">
+          <arg choice="plain"><option>-t</option></arg>
+          <arg choice="plain"><option>--testing</option></arg>
+        </group>
+        <group choice="req">
+          <arg choice="plain"><replaceable>y</replaceable></arg>
+          <arg choice="plain"><replaceable>n</replaceable></arg>
+        </group>
+      </arg>
+
+      <arg choice="opt">
+        <group choice="req">
+          <arg choice="plain"><option>-a</option></arg>
+          <arg choice="plain"><option>--unstable</option></arg>
+        </group>
+        <group choice="req">
+          <arg choice="plain"><replaceable>y</replaceable></arg>
+          <arg choice="plain"><replaceable>n</replaceable></arg>
+        </group>
+      </arg>
+
+      <arg choice="opt">
+        <group choice="req">
+          <arg choice="plain"><option>-n</option></arg>
+          <arg choice="plain"><option>--netinstall</option></arg>
+        </group>
+        <group choice="req">
+          <arg choice="plain"><replaceable>y</replaceable></arg>
+          <arg choice="plain"><replaceable>n</replaceable></arg>
+        </group>
+      </arg>
+
+      <arg choice="opt">
+        <group choice="req">
+          <arg choice="plain"><option>-m</option></arg>
+          <arg choice="plain"><option>--smp-client</option></arg>
+        </group>
+        <group choice="req">
+          <arg choice="plain"><replaceable>y</replaceable></arg>
+          <arg choice="plain"><replaceable>n</replaceable></arg>
+        </group>
+      </arg>
+
+      <arg choice="opt">
+        <group choice="req">
+          <arg choice="plain"><option>-x</option></arg>
+          <arg choice="plain"><option>--set-proxy</option></arg>
+        </group>
+        <group choice="req">
+          <arg choice="plain"><replaceable>y</replaceable></arg>
+          <arg choice="plain"><replaceable>n</replaceable></arg>
+        </group>
+      </arg>
+
+      <arg choice="opt">
+        <group choice="req">
+          <arg choice="plain"><option>-c</option></arg>
+          <arg choice="plain"><option>--console-output</option></arg>
+        </group>
+        <group choice="req">
+          <arg choice="plain"><replaceable>y</replaceable></arg>
+          <arg choice="plain"><replaceable>n</replaceable></arg>
+        </group>
+      </arg>
+
+      <arg choice="opt">
+        <group choice="req">
+          <arg choice="plain"><option>-g</option></arg>
+          <arg choice="plain"><option>--upgrade_system</option></arg>
+        </group>
+        <group choice="req">
+          <arg choice="plain"><replaceable>y</replaceable></arg>
+          <arg choice="plain"><replaceable>n</replaceable></arg>
+        </group>
+      </arg>
+
+      <arg choice="opt">
+        <group choice="req">
+          <arg choice="plain"><option>-k</option></arg>
+          <arg choice="plain"><option>--client_archi</option></arg>
+        </group>
+        <group choice="req">
+          <arg choice="plain"><replaceable>0</replaceable></arg>
+          <arg choice="plain"><replaceable>1</replaceable></arg>
+          <arg choice="plain"><replaceable>2</replaceable></arg>
+        </group>
+      </arg>
+
+      <arg choice="opt">
+        <group choice="req">
+          <arg choice="plain"><option>-o</option></arg>
+          <arg choice="plain"><option>--client_kernel_from</option></arg>
+        </group>
+        <group choice="req">
+          <arg choice="plain"><replaceable>1</replaceable></arg>
+          <arg choice="plain"><replaceable>2</replaceable></arg>
+        </group>
+      </arg>
+
+      <arg choice="opt">
+        <group choice="req">
+          <arg choice="plain"><option>-s</option></arg>
+          <arg choice="plain"><option>--skip-select-repository</option></arg>
+        </group>
+      </arg>
+
+      <arg choice="opt">
+        <group choice="req">
+          <arg choice="plain"><option>-l</option></arg>
+          <arg choice="plain"><option>--language</option></arg>
+        </group>
+        <group choice="req">
+          <arg choice="plain"><replaceable>0</replaceable></arg>
+          <arg choice="plain"><replaceable>1</replaceable></arg>
+          <arg choice="plain"><replaceable>2</replaceable></arg>
+        </group>
+      </arg>
+
+    </cmdsynopsis>
+    <cmdsynopsis>
+      <command>&dhpackage;</command>
+      <!-- Normally the help and version options make the programs stop
+           right after outputting the requested information. -->
+      <group choice="opt">
+        <arg choice="plain">
+          <group choice="req">
+            <arg choice="plain"><option>-h</option></arg>
+            <arg choice="plain"><option>--help</option></arg>
+          </group>
+        </arg>
+        <arg choice="plain">
+          <group choice="req">
+            <arg choice="plain"><option>-v</option></arg>
+            <arg choice="plain"><option>--version</option></arg>
+          </group>
+        </arg>
+      </group>
+    </cmdsynopsis>
+  </refsynopsisdiv>
+  <refsect1 id="description">
+    <title>DESCRIPTION</title>
+   <para><command>&dhpackage;</command> is a program to build or maintain a DRBL server.</para>
+  </refsect1>
+  <refsect1 id="options">
+    <title>OPTIONS</title>
+    <para>The program follows the usual GNU command line syntax,
+      with long options starting with two dashes (`-').  A summary of
+      options is included below.</para>
+    <variablelist>
+      <!-- Use the variablelist.term.separator and the
+           variablelist.term.break.after parameters to
+           control the term elements. -->
+      <varlistentry>
+        <term><option>-f</option></term>
+        <term><option>--force-yes</option></term>
+        <listitem>
+          <para>force yes, only for Debian-like distribution. It  should  
+	  not  be used except in very special situations. Using force-yes 
+	  can potentially destroy your system!</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><option>-i</option></term>
+        <term><option>--install</option></term>
+        <listitem>
+          <para>install DRBL.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><option>-u</option></term>
+        <term><option>--uninstall</option></term>
+        <listitem>
+          <para>uninstall DRBL.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><option>-v</option></term>
+        <term><option>--verbose</option></term>
+        <listitem>
+          <para>verbose mode.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><option>-t <replaceable>[y/n]</replaceable></option></term>
+        <term><option>--testing <replaceable>[y/n]</replaceable></option></term>
+        <listitem>
+          <para>use packages in testing branch or not.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><option>-a <replaceable>[y/n]</replaceable></option></term>
+        <term><option>--unstable <replaceable>[y/n]</replaceable></option></term>
+        <listitem>
+          <para>use packages in unstable branch or not.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><option>-n <replaceable>[y/n]</replaceable></option></term>
+        <term><option>--netinstall <replaceable>[y/n]</replaceable></option></term>
+        <listitem>
+          <para>install the network installation program or not.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><option>-m <replaceable>[y/n]</replaceable></option></term>
+        <term><option>--smp-client <replaceable>[y/n]</replaceable></option></term>
+        <listitem>
+          <para>use SMP kernel for DRBL clients or not.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><option>-x <replaceable>[y/n]</replaceable></option></term>
+        <term><option>--set-proxy <replaceable>[y/n]</replaceable></option></term>
+        <listitem>
+          <para>set proxy or not.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><option>-c <replaceable>[y/n]</replaceable></option></term>
+        <term><option>--console-output <replaceable>[y/n]</replaceable></option></term>
+        <listitem>
+          <para>set console output for client or not.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><option>-g <replaceable>[y/n]</replaceable></option></term>
+        <term><option>--upgrade_system <replaceable>[y/n]</replaceable></option></term>
+        <listitem>
+          <para>upgrade system or not.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><option>-k <replaceable>[0|1|2]</replaceable></option></term>
+        <term><option>--client_archi <replaceable>[0|1|2]</replaceable></option></term>
+        <listitem>
+          <para>set the client's CPU arch, 0 for i386, 1 for i586, 2 for same level with DRBL server (for x86_64, use 2).</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><option>-o <replaceable>[1|2]</replaceable></option></term>
+        <term><option>--client_kernel_from <replaceable>[1|2]</replaceable></option></term>
+        <listitem>
+          <para>choose client's kernel image from, 1 from DRBL server running kernel (if available), 2 from ayo repository.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><option>-s</option></term>
+        <term><option>--skip-select-repository</option></term>
+        <listitem>
+          <para>skip the question for selecting repository.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><option>-l <replaceable>[N]</replaceable></option></term>
+        <term><option>--language <replaceable>[N]</replaceable></option></term>
+        <listitem>
+          <para>Set the language to be shown, where N:
+                  0: English,
+                  1: Traditional Chinese (Big5) - Taiwan,
+                  2: Traditional Chinese (UTF-8, Unicode) - Taiwan.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><option>-h</option></term>
+        <term><option>--help</option></term>
+        <listitem>
+          <para>Show summary of options.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><option>-v</option></term>
+        <term><option>--version</option></term>
+        <listitem>
+          <para>Show version of program.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </refsect1>
+  <refsect1 id="files">
+    <title>FILES</title>
+    <variablelist>
+      <varlistentry>
+        <term><filename>/etc/drbl/drbl.conf</filename></term>
+        <listitem>
+          <para>The system-wide configuration file to control the
+            behaviour of <application>&dhpackage;</application>. See
+            <citerefentry>
+              <refentrytitle>drbl.conf</refentrytitle>
+              <manvolnum>5</manvolnum>
+            </citerefentry> for further details.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><filename>${HOME}/.drbl.conf</filename></term>
+        <listitem>
+          <para>The per-user configuration file to control the
+             behaviour of <application>&dhpackage;</application>. See
+             <citerefentry>
+               <refentrytitle>drbl.conf</refentrytitle>
+               <manvolnum>5</manvolnum>
+             </citerefentry> for further details.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </refsect1>
+  <refsect1 id="environment">
+    <title>ENVIRONMENT</title>
+    <variablelist>
+      <varlistentry>
+        <term><envar>DRBL_SCRIPT_PATH</envar></term>
+        <listitem>
+          <para>If used, the defined path is used to access each of
+	  drbl's routine scripts.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </refsect1>
+  <refsect1 id="diagnostics">
+    <title>DIAGNOSTICS</title>
+    <para>The following diagnostics may be issued
+      on <filename class="devicefile">stderr</filename>:</para>
+    <variablelist>
+      <varlistentry>
+        <term><errortext>Any error messages worth to be reported in this manpage?</errortext></term>
+        <listitem>
+          <para>If so, they should be documented here.
+          </para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+    <para><command>&dhpackage;</command> provides some return codes, that can
+      be used in scripts:</para>
+    <segmentedlist>
+      <segtitle>Code</segtitle>
+      <segtitle>Diagnostic</segtitle>
+      <seglistitem>
+        <seg><errorcode>0</errorcode></seg>
+        <seg>Program exited successfully.</seg>
+      </seglistitem>
+      <seglistitem>
+        <seg><errorcode>1</errorcode></seg>
+        <seg>is such documentation useful? If no, erase it.</seg>
+      </seglistitem>
+    </segmentedlist>
+  </refsect1>
+  <refsect1 id="bugs">
+    <!-- Or use this section to tell about upstream BTS. -->
+    <title>KNOWN BUGS</title>
+    <para>The program is currently limited to only work
+      with ... [some known bugs?]</para>
+  </refsect1>
+  <refsect1 id="see_also">
+    <title>SEE ALSO</title>
+    <!-- In alpabetical order. -->
+    <para>
+      <citerefentry>
+        <refentrytitle>drbl.conf</refentrytitle>
+        <manvolnum>5</manvolnum>
+      </citerefentry>, 
+
+      <citerefentry>
+        <refentrytitle>drblpush</refentrytitle>
+        <manvolnum>8</manvolnum>
+      </citerefentry>
+    </para>
+  </refsect1>
+</refentry>
+
