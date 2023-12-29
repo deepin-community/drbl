@@ -1,5 +1,355 @@
-template-repository (1.0-1) unstable; urgency=medium
+drbl (5.2.28-1) unstable; urgency=medium
 
-  * Initial release
+  * New upstream version 5.2.28
 
- -- Tsic404 <liuheng@deepin.org>  Sat, 28 Jan 2023 13:46:49 +0800
+ -- Georges Khaznadar <georgesk@debian.org>  Sun, 17 Dec 2023 17:18:16 +0100
+
+drbl (5.2.27-1) unstable; urgency=medium
+
+  * New upstream version 5.2.27
+
+ -- Georges Khaznadar <georgesk@debian.org>  Mon, 11 Dec 2023 15:24:16 +0100
+
+drbl (5.2.26-1) unstable; urgency=medium
+
+  * New upstream version 5.2.26
+
+ -- Georges Khaznadar <georgesk@debian.org>  Thu, 02 Nov 2023 12:18:30 +0100
+
+drbl (5.2.23-1) unstable; urgency=medium
+
+  * New upstream version 5.2.23
+
+ -- Georges Khaznadar <georgesk@debian.org>  Sun, 15 Oct 2023 19:33:39 +0200
+
+drbl (5.2.22-1) unstable; urgency=medium
+
+  * New upstream version 5.2.22
+
+ -- Georges Khaznadar <georgesk@debian.org>  Thu, 24 Aug 2023 11:00:06 +0200
+
+drbl (5.2.21-3) unstable; urgency=medium
+
+  * reverted to control file from 5.2.21-1
+
+ -- Georges Khaznadar <georgesk@debian.org>  Sun, 06 Aug 2023 12:27:40 +0200
+
+drbl (5.2.21-2) unstable; urgency=medium
+
+  * use a more sophisticated dependency scheme for syslinux
+  * removed the minimum version for the dependency on bash
+
+ -- Georges Khaznadar <georgesk@debian.org>  Sat, 05 Aug 2023 23:12:24 +0200
+
+drbl (5.2.21-1) unstable; urgency=medium
+
+  * New upstream version 5.2.21
+  * just recommend syslinux, since arm64 architectures cannot install it
+
+ -- Georges Khaznadar <georgesk@debian.org>  Sat, 05 Aug 2023 23:02:27 +0200
+
+drbl (5.2.18-1) unstable; urgency=medium
+
+  * New upstream version 5.2.18
+
+ -- Georges Khaznadar <georgesk@debian.org>  Tue, 25 Jul 2023 10:27:46 +0200
+
+drbl (5.2.17-1) unstable; urgency=medium
+
+  * New upstream version 5.2.17
+
+ -- Georges Khaznadar <georgesk@debian.org>  Fri, 14 Jul 2023 19:04:50 +0200
+
+drbl (5.2.15-1) unstable; urgency=medium
+
+  * New upstream version 5.2.15
+
+ -- Georges Khaznadar <georgesk@debian.org>  Sat, 01 Jul 2023 16:26:55 +0200
+
+drbl (5.2.12-3) unstable; urgency=medium
+
+  * upload to unstable
+
+ -- Georges Khaznadar <georgesk@debian.org>  Sun, 11 Jun 2023 11:44:10 +0200
+
+drbl (5.2.12-2) experimental; urgency=medium
+
+  * promoted syslinux, syslinux-common from recommendations to dependencies
+  * created postinst and prerm routines, to manage file
+    /usr/share/drbl/pkg/syslinux/bios/mbr.bin
+    Closes: #886098
+
+ -- Georges Khaznadar <georgesk@debian.org>  Sat, 10 Jun 2023 11:45:01 +0200
+
+drbl (5.2.12-1) experimental; urgency=medium
+
+  * New upstream version 5.2.12
+
+ -- Georges Khaznadar <georgesk@debian.org>  Mon, 29 May 2023 14:18:17 +0200
+
+drbl (5.2.10-1) experimental; urgency=medium
+
+  * New upstream version 5.2.10
+
+ -- Georges Khaznadar <georgesk@debian.org>  Mon, 01 May 2023 17:21:36 +0200
+
+drbl (5.2.7-1) unstable; urgency=medium
+
+  * New upstream version 5.2.7
+  * bumped Standards-Version: 4.6.2
+
+ -- Georges Khaznadar <georgesk@debian.org>  Sat, 11 Feb 2023 18:39:36 +0100
+
+drbl (5.2.3-1) unstable; urgency=medium
+
+  * New upstream version 5.2.3
+
+ -- Georges Khaznadar <georgesk@debian.org>  Thu, 12 Jan 2023 17:40:09 +0100
+
+drbl (5.2.1-1) unstable; urgency=medium
+
+  * New upstream version 5.2.1
+
+ -- Georges Khaznadar <georgesk@debian.org>  Fri, 16 Dec 2022 18:09:07 +0100
+
+drbl (5.2.0-1) unstable; urgency=medium
+
+  * New upstream version 5.2.0
+
+ -- Georges Khaznadar <georgesk@debian.org>  Thu, 08 Dec 2022 16:38:50 +0100
+
+drbl (5.1.17-1) unstable; urgency=medium
+
+  * New upstream version 5.1.17
+
+ -- Georges Khaznadar <georgesk@debian.org>  Tue, 01 Nov 2022 11:39:55 +0100
+
+drbl (5.1.10-1) unstable; urgency=medium
+
+  * New upstream version 5.1.10
+
+ -- Georges Khaznadar <georgesk@debian.org>  Sat, 09 Jul 2022 08:35:48 +0200
+
+drbl (5.1.9-1) unstable; urgency=medium
+
+  * New upstream version 5.1.9
+
+ -- Georges Khaznadar <georgesk@debian.org>  Tue, 14 Jun 2022 14:23:42 +0200
+
+drbl (5.1.8-1) unstable; urgency=medium
+
+  * New upstream version 5.1.8
+
+ -- Georges Khaznadar <georgesk@debian.org>  Tue, 31 May 2022 20:01:07 +0200
+
+drbl (5.1.3-1) unstable; urgency=medium
+
+  * New upstream version 5.1.3
+
+ -- Georges Khaznadar <georgesk@debian.org>  Thu, 19 May 2022 18:12:48 +0200
+
+drbl (5.0.9-1) unstable; urgency=medium
+
+  * New upstream version 5.0.9
+  * refreshed patch "fix-bug-979268.patch"
+
+ -- Georges Khaznadar <georgesk@debian.org>  Fri, 06 May 2022 18:45:51 +0200
+
+drbl (5.0.7-1) unstable; urgency=medium
+
+  * New upstream version 5.0.7
+
+ -- Georges Khaznadar <georgesk@debian.org>  Wed, 20 Apr 2022 11:03:31 +0200
+
+drbl (5.0.6-1) unstable; urgency=medium
+
+  * new upstream version 5.0.6
+
+ -- Georges Khaznadar <georgesk@debian.org>  Mon, 11 Apr 2022 18:39:59 +0200
+
+drbl (5.0.3-1) unstable; urgency=medium
+
+  * New upstream version 5.0.3
+
+ -- Georges Khaznadar <georgesk@debian.org>  Sat, 26 Mar 2022 19:05:07 +0100
+
+drbl (5.0.1-1) unstable; urgency=medium
+
+  * new upstream version
+  * bumped Standards-Version: 4.6.0
+
+ -- Georges Khaznadar <georgesk@debian.org>  Sun, 06 Mar 2022 19:41:13 +0100
+
+drbl (4.5.16-1) unstable; urgency=medium
+
+  * new upstream release
+
+ -- Georges Khaznadar <georgesk@debian.org>  Sat, 22 Jan 2022 18:24:41 +0100
+
+drbl (4.5.3-1) unstable; urgency=medium
+
+  * New upstream release
+  * bumped standards-version and dh-compat
+
+ -- Georges Khaznadar <georgesk@debian.org>  Mon, 11 Oct 2021 18:34:01 +0200
+
+drbl (2.32.10-2) unstable; urgency=medium
+
+  * Applied Michael Biebl's patch, thanks!
+    Closes: #979268
+
+ -- Georges Khaznadar <georgesk@debian.org>  Fri, 15 Jan 2021 14:57:01 +0100
+
+drbl (2.32.10-1) unstable; urgency=medium
+
+  * New upstream version 2.32.10
+  * ignore some contents with .gitignore
+  * upgrades: debhelper -> debhelper-compat (=12), Standards-Version: 4.5.0
+  * versioned the dependency on bash, simplified the dependency on fdisk
+
+ -- Georges Khaznadar <georgesk@debian.org>  Mon, 03 Aug 2020 10:31:21 +0200
+
+drbl (2.30.5-1) unstable; urgency=medium
+
+  * changed the pattern for the watch file: now searched files are tar.xz
+  * New upstream version 2.25.10
+  * changed the pattern for the watch file: the source repository is now http://free.nchc.org.tw/drbl-core/pool/drbl/stable/drbl/
+  * New upstream version 2.30.5; this Closes: #928442
+
+ -- Georges Khaznadar <georgesk@debian.org>  Fri, 24 Jan 2020 19:48:10 +0100
+
+drbl (2.20.11-7) unstable; urgency=medium
+
+  * changed the dependency on ash to a dependency on bash. Closes: #919992
+  * Upgraded Standards-Version: 4.3.1, and dh level to 11.
+
+ -- Georges Khaznadar <georgesk@debian.org>  Mon, 21 Jan 2019 17:52:04 +0100
+
+drbl (2.20.11-6) unstable; urgency=medium
+
+  * REALLY Changed the dependency on syslinux into a recommendation.
+    Closes: #899168
+
+ -- Georges Khaznadar <georgesk@debian.org>  Sun, 20 May 2018 16:27:00 +0200
+
+drbl (2.20.11-5) unstable; urgency=medium
+
+  * Changed the dependency on syslinux into a recommendation.
+    Closes: #899168
+  * upgraded Standards-Version: 4.1.4, debhelper (>= 10)
+  * added Vcs stuff for salsa.d.o
+
+ -- Georges Khaznadar <georgesk@debian.org>  Sun, 20 May 2018 16:10:50 +0200
+
+drbl (2.20.11-4) unstable; urgency=medium
+
+  * added a dependency on e2fsprogs. Closes: #887272
+
+ -- Georges Khaznadar <georgesk@debian.org>  Sun, 14 Jan 2018 21:19:01 +0100
+
+drbl (2.20.11-3) unstable; urgency=medium
+
+  * added a dependency on fdisk. Closes: #872127
+
+ -- Georges Khaznadar <georgesk@debian.org>  Mon, 14 Aug 2017 16:35:23 +0200
+
+drbl (2.20.11-2) unstable; urgency=medium
+
+  * patched the file setup/files/misc/init.drbl to use udevadm
+    with the default PATH. Closes: #852562
+
+ -- Georges Khaznadar <georgesk@debian.org>  Tue, 20 Jun 2017 16:14:01 +0200
+
+drbl (2.20.11-1) unstable; urgency=medium
+
+  * New upstream release
+  * Updated Standards-Version: 3.9.8
+
+ -- Georges Khaznadar <georgesk@debian.org>  Sun, 13 Nov 2016 21:32:34 +0100
+
+drbl (2.19.11-1) unstable; urgency=medium
+
+  * upgraded to the newest upstream version
+  * added a dependency on bc
+  * upgraded Standards-Version to 3.9.7
+
+ -- Georges Khaznadar <georgesk@debian.org>  Sat, 02 Apr 2016 18:43:06 +0200
+
+drbl (2.11.15-1) unstable; urgency=medium
+
+  * upgraded to the newest upstream version
+  * removed the copyright mention about the file fail-mbr.bin which is no
+    longer part of this package.
+  * fixed a typo in the bash script ca_ES
+  * upgraded Srandards-Version to 3.9.6
+
+ -- Georges Khaznadar <georgesk@debian.org>  Fri, 08 May 2015 18:38:44 +0200
+
+drbl (2.8.25-1) unstable; urgency=medium
+
+  * upgraded to the newest upstream version
+
+ -- Georges Khaznadar <georgesk@debian.org>  Sat, 07 Jun 2014 19:02:28 +0200
+
+drbl (2.8.21-1) unstable; urgency=medium
+
+  * upgraded to the newest upstream version
+  * upgraded Standards-Version to 3.9.5 and debhelper to 9
+  * removed an extra license file usr/share/drbl/doc/GPL
+
+ -- Georges Khaznadar <georgesk@debian.org>  Sun, 18 May 2014 19:58:44 +0200
+
+drbl (2.6.15-1) unstable; urgency=low
+
+  * upgraded to the new upstream release. Closes: #726377
+    about bug #726377: some documentation has been added (man drbl)
+    and "drblsrv -i" was tested successfully (under jessie)
+
+ -- Georges Khaznadar <georgesk@debian.org>  Sun, 01 Dec 2013 10:50:28 +0100
+
+drbl (2.4.19-1) unstable; urgency=low
+
+  * upgraded to the new upstream version
+
+ -- Georges Khaznadar <georgesk@debian.org>  Mon, 26 Aug 2013 20:41:41 +0200
+
+drbl (2.4.17-2) unstable; urgency=low
+
+  * added a Recommends: clonezilla. Closes: #704031
+
+ -- Georges Khaznadar <georgesk@debian.org>  Mon, 24 Jun 2013 11:15:01 +0200
+
+drbl (2.4.17-1) unstable; urgency=low
+
+  * upgraded to the newest upstream version
+
+ -- Georges Khaznadar <georgesk@debian.org>  Mon, 24 Jun 2013 10:53:14 +0200
+
+drbl (2.3.10-1) unstable; urgency=low
+
+  * changed my DEBEMAIL
+  * updated Srandards-Version
+  * upgraded to the latest upstream version
+
+ -- Georges Khaznadar <georgesk@debian.org>  Mon, 13 May 2013 02:59:44 +0200
+
+drbl (1.10.90-1) unstable; urgency=low
+
+  * upgraded to the newer upstream version
+  * upgraded Standards-Version to 3.9.3
+  * fixed a wrong default path in sbin/drblsrv-offline; Closes: #669277
+
+ -- Georges Khaznadar <georgesk@ofset.org>  Wed, 18 Apr 2012 19:22:29 +0000
+
+drbl (1.10.31-2) unstable; urgency=low
+
+  * changed the path to the main configuration file to comply with FHS
+  * made one command visible: drblsrv and provided a first manpage
+
+ -- Georges Khaznadar <georgesk@ofset.org>  Thu, 29 Dec 2011 15:31:55 +0100
+
+drbl (1.10.31-1) unstable; urgency=low
+
+  * Initial release (Closes: #620722)
+
+ -- Georges Khaznadar <georgesk@ofset.org>  Mon, 26 Dec 2011 19:25:31 +0100

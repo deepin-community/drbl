@@ -1,0 +1,79 @@
+#!/bin/bash
+# Author: Steven Shiau, <steven _at_ clonezilla org>
+# License: GPL
+# Program to get DNS server
+
+# Load DRBL setting and functions
+DRBL_SCRIPT_PATH="${DRBL_SCRIPT_PATH:-/usr/share/drbl}"
+
+. $DRBL_SCRIPT_PATH/sbin/drbl-conf-functions
+#
+# Settings
+DNS_sys="/etc/resolv.conf"
+
+Usage() {
+  echo "Get the DNS server IP address for system." 
+  echo "Usage:"
+  echo "$(basename $0)"
+  echo "Ex: $(basename $0)"
+}
+
+#
+while [ $# -gt 0 ]; do
+  case "$1" in
+    -*)	echo "${0}: ${1}: invalid option" >&2
+	Usage >&2
+	exit 2 ;;
+    *)	break ;;
+  esac
+done
+
+nameserver_sys="$(LC_ALL=C grep -Ew "^nameserver" $DNS_sys | awk -F" " '{print $2}')"
+if [ -z "$nameserver_sys" -o -n "$(echo "$nameserver_sys" | grep -E "^127\..*")" ]; then
+  # On Ubuntu, dnsmasq with network-manager, the result might 127.0.0.1. We use nm-tool to get the real one
+  # Ubuntu >= 22.04, use "resolvectl status"
+  # Ubuntu >= 17.10 or Debian >= 9, use "systemd-resolve --status"
+  # Ubuntu <= 14.04, use "nmcli dev list", while > 14.04, "nmcli dev show".
+  # Results of systemd-resolve --status, example:
+  # DNS Servers: 8.8.8.8
+  #		 8.8.4.4
+  # or
+  # DNS Servers: 8.8.8.8
+  # 		 8.8.4.4
+  #              168.95.1.1
+  #              DNSSEC NTA: 10.in-addr.arpa
+  nameserver_sys="$(LC_ALL=C resolvectl status 2>/dev/null | grep -E "^[[:space:]]*DNS Servers" | awk -F":" '{print $2}')"
+  if [ -z "$nameserver_sys" ]; then
+    nameserver_sys="$(LC_ALL=C systemd-resolve --status 2>/dev/null | sed -r -n '/DNS Servers:/,/(^$|^[[:print:]]*:[[:space:]]+.*)/p' | sed -r -e "s/DNS Servers://g")"
+    # Decide the last line if it's the IP address.
+    last_line="$(LC_ALL=C echo "$nameserver_sys" | tail -n 1 | grep -E "^[[:print:]]*:[[:space:]]+.*$")"
+  fi
+  if [ -n "$last_line" ]; then
+    # Do not show the last line, remove it.
+    nameserver_sys="$(echo "$nameserver_sys" | head -n -1)"
+  fi
+  if [ -z "$nameserver_sys" ]; then
+    nameserver_sys="$(LC_ALL=C nmcli dev show 2>/dev/null | grep -i "IP4.DNS" | awk -F " " '{print $2}')"
+  fi
+  if [ -z "$nameserver_sys" ]; then
+    nameserver_sys="$(LC_ALL=C nmcli dev list 2>/dev/null | grep -i "IP4.DNS" | awk -F " " '{print $2}')"
+  fi
+  if [ -z "$nameserver_sys" ]; then
+    # Last posibility, dnsmasq
+    nameserver_sys="$(LC_ALL=C grep -Ew "^nameserver" /var/run/dnsmasq/resolv.conf 2>/dev/null | awk -F" " '{print $2}')"
+  fi
+fi
+
+sys_dns=""
+# For multiple NIC configured with DNS, 
+# nameserver_sys can be like: '8.8.8.8 DNS Domain: ~.  8.8.8.8 DNS Domain: ~.     '
+# Hence we only put correct IPv4 address.
+# Ref: https://groups.google.com/g/drbl/c/ebgoMdLIo9c
+# Thanks to Alber Yang (alber.yang _at_ gmail com) for reporting this issue.
+for i in $nameserver_sys; do
+  if `is_valid_IPv4_add $i`; then
+    sys_dns="$sys_dns, $i"
+  fi
+done
+# Strip the leading ", "
+echo "$(echo $sys_dns | sed -r -e "s/^, //")"

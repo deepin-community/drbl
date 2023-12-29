@@ -1,0 +1,17 @@
+Description: Stop using deprecated systemd-resolve tool
+ systemd-resolve has been replaced by the resolvectl tool in systemd v239
+ (i.e. is available since buster).
+
+Index: drbl/scripts/bin/drbl-get-dnsserver
+===================================================================
+--- drbl.orig/scripts/bin/drbl-get-dnsserver
++++ drbl/scripts/bin/drbl-get-dnsserver
+@@ -44,7 +44,7 @@ if [ -z "$nameserver_sys" -o -n "$(echo
+   #              DNSSEC NTA: 10.in-addr.arpa
+   nameserver_sys="$(LC_ALL=C resolvectl status 2>/dev/null | grep -E "^[[:space:]]*DNS Servers" | awk -F":" '{print $2}')"
+   if [ -z "$nameserver_sys" ]; then
+-    nameserver_sys="$(LC_ALL=C systemd-resolve --status 2>/dev/null | sed -r -n '/DNS Servers:/,/(^$|^[[:print:]]*:[[:space:]]+.*)/p' | sed -r -e "s/DNS Servers://g")"
++    nameserver_sys="$(LC_ALL=C resolvectl status 2>/dev/null | sed -r -n '/DNS Servers:/,/(^$|^[[:print:]]*:[[:space:]]+.*)/p' | sed -r -e "s/DNS Servers://g")"
+     # Decide the last line if it's the IP address.
+     last_line="$(LC_ALL=C echo "$nameserver_sys" | tail -n 1 | grep -E "^[[:print:]]*:[[:space:]]+.*$")"
+   fi

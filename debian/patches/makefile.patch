@@ -1,0 +1,12 @@
+--- a/Makefile
++++ b/Makefile
+@@ -44,6 +44,9 @@
+ 	# install themes
+ 	install -d $(DESTDIR)/usr/share/gdm/themes/drbl-gdm
+ 	cp -a themes/* $(DESTDIR)/usr/share/gdm/themes/drbl-gdm/
++	# fix some permissions
++	find $(DESTDIR) -perm /111 | grep -E '\.desktop$$|\.service$$' | \
++	  xargs chmod a-x
+ 
+ clean:
+ 	$(MAKE) -C sbin clean
